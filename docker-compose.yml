@@ -1,0 +1,10 @@
+nginx:
+  build: nginx
+  ports:
+    - "8000:8000"
+  links:
+    - php-fpm
+
+php-fpm:
+  build: php-fpm
+  ports: "9000:9000"
