@@ -1,4 +1,4 @@
-FROM mariadb
+FROM tutum/mariadb
 COPY ./db/structure.sql /tmp/structure.sql
 RUN /bin/bash -c "/usr/bin/mysqld_safe &" && \
   sleep 5 && \
