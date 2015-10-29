@@ -1,4 +1,5 @@
 <HTML>
+  <link rel="shortcut icon" href="about:blank">
 <BODY>
 <?php
 

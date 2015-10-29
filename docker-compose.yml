@@ -1,20 +1,21 @@
 db:
-    image: mysql
-    ports:
-        - 3306:3306
-    environment:
-        MYSQL_ROOT_PASSWORD: root
-        MYSQL_DATABASE: symfony
-        MYSQL_USER: root
-        MYSQL_PASSWORD: root
+  build: mariadb10
+  ports:
+    - 3306:3306
+  environment:
+    MYSQL_ROOT_PASSWORD: root
+    MYSQL_USER: root
+    MYSQL_PASSWORD: root
 php:
     build: php-fpm
     expose:
         - 9000:9000
     links:
         - db
-    volumes:
-        - ./logs/php-fpm:/var/log/php-fpm
+    environment:
+      MYSQL_PORT_3306_TCP_ADDR: db
+      MYSQL_ENV_MYSQL_USER: root
+      MYSQL_PASS: root
 nginx:
     build: nginx
     ports:
