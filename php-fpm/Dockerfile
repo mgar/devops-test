@@ -5,7 +5,5 @@ COPY ./src /myapp
 WORKDIR /myapp
 VOLUME /myapp
 RUN usermod -u 1000 www-data
-RUN rm /usr/local/bin/php && \
-    ln -s /usr/bin/php5 /usr/local/bin/php
 CMD ["php5-fpm", "-F"]
 EXPOSE 9000
